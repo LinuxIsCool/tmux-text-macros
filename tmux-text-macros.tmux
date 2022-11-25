@@ -50,7 +50,8 @@ tmux_macros() {
         else
             command="tmux split-window -h"
         fi
-        tmux bind e run-shell "$command  \"PANE='#{pane_id}' $0 -r\""
+        tmux unbind "\;"
+        tmux bind "\;" run-shell "$command  \"PANE='#{pane_id}' $0 -r\""
     fi
 }
 window_mode=$(get_tmux_option "@ttm-window-mode" "horizontal")
